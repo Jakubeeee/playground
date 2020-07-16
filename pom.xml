@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.1.RELEASE</version>
+    </parent>
+    <groupId>com.jakubeeee.playground</groupId>
+    <artifactId>parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>Parent module that aggregates configuration and dependencies common to all submodules</description>
+
+    <modules>
+        <module>client</module>
+        <module>ms-java</module>
+    </modules>
+
+    <developers>
+        <developer>
+            <name>Jakub Bereźnicki</name>
+            <email>jakub.bereznicki@gmail.com</email>
+            <url>https://github.com/Jakubeeee</url>
+            <timezone>CEST</timezone>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <java.version>14</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <project.encoding>UTF-8</project.encoding>
+        <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+
+        <!-- IntelliJ IDEA does not recognize this property, but maven resolves it nonetheless -->
+        <!--suppress UnresolvedMavenProperty-->
+        <project.root>${maven.multiModuleProjectDirectory}</project.root>
+    </properties>
+
+</project>
