@@ -16,8 +16,8 @@
     <description>Parent module that aggregates configuration and dependencies common to all submodules</description>
 
     <modules>
-        <module>client</module>
         <module>ms-java</module>
+        <module>client</module>
     </modules>
 
     <developers>
