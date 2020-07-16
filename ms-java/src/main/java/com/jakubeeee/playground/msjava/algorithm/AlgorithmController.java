@@ -30,7 +30,7 @@ public class AlgorithmController {
     // curl -X POST -d "ints=1,10,2,9,3,8,4,7,5,6" http://localhost:8080/algorithm/quicksort
     @PostMapping(path = "algorithm/quicksort")
     public void quickSort(@RequestParam(value = "ints", defaultValue = "1,10,2,9,3,8,4,7,5,6") int[] unsortedInts) {
-        algorithmService.quickSort(unsortedInts);
+        algorithmService.quickSortProvidedInts(unsortedInts);
     }
 
 }

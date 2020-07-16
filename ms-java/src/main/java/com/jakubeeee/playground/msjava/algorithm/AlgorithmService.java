@@ -1,13 +1,15 @@
 package com.jakubeeee.playground.msjava.algorithm;
 
+import com.jakubeeee.playground.msjava.durationmeasure.MeasureDuration;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Contains implementations of various algorithms
+ */
 @Slf4j
 @Service
 public class AlgorithmService {
@@ -17,24 +19,23 @@ public class AlgorithmService {
      *
      * @param iterations the amount of loop iterations to perform
      */
+    @MeasureDuration
     public void invokeLoop(int iterations) {
-        if (iterations < 1) throw new IllegalArgumentException("Iteration amount must be positive");
-        var startingInstant = Instant.now();
+        if (iterations < 1) throw new IllegalArgumentException("Iteration amount must be a positive number");
         for (int i = 1; i <= iterations; i++)
             LOGGER.info("Iteration number: {}", i);
-        var endingInstant = Instant.now();
-        var methodDuration = Duration.between(startingInstant, endingInstant);
-        LOGGER.info("Invoke loop method duration: {}", methodDuration.toMillis());
     }
 
     /**
      * Performs a quick sort of randomly generated int array.
      *
-     * @param amount the size of the int array to sort
+     * @param size the size of the int array to sort
      */
-    public void quickSortRandomInts(int amount) {
-        int[] unsortedInts = ThreadLocalRandom.current().ints(amount, 0, 100000).toArray();
-        quickSort(unsortedInts);
+    @MeasureDuration
+    public void quickSortRandomInts(int size) {
+        if (size < 2) throw new IllegalArgumentException("Array size must be a at least 2");
+        int[] unsortedInts = ThreadLocalRandom.current().ints(size, 0, 100000).toArray();
+        quickSortFullIntArray(unsortedInts);
     }
 
     /**
@@ -42,19 +43,20 @@ public class AlgorithmService {
      *
      * @param unsortedInts the unsorted int array
      */
-    public void quickSort(@NonNull int[] unsortedInts) {
-        LOGGER.info("Array before applying quick sort: {}", unsortedInts);
-        var startingInstant = Instant.now();
-        int firstLowIndex = 0; // the index of the first array element
-        int firstHighIndex = unsortedInts.length - 1; // the index of the las array element
-        quickSortSubArray(unsortedInts, firstLowIndex, firstHighIndex);
-        var endingInstant = Instant.now();
-        var methodDuration = Duration.between(startingInstant, endingInstant);
-        LOGGER.info("Quick sort method duration: {}", methodDuration.toMillis());
+    @MeasureDuration
+    public void quickSortProvidedInts(@NonNull int[] unsortedInts) {
+        if (unsortedInts.length < 2) throw new IllegalArgumentException("Array size must be a at least 2");
+        quickSortFullIntArray(unsortedInts);
+    }
+
+    private void quickSortFullIntArray(int[] unsortedInts) {
+        int firstLowIndex = 0;
+        int firstHighIndex = unsortedInts.length - 1;
+        quickSortSubIntArray(unsortedInts, firstLowIndex, firstHighIndex);
         LOGGER.info("Array after applying quick sort: {}", unsortedInts);
     }
 
-    private void quickSortSubArray(int[] unsortedInts, int lowIndex, int highIndex) {
+    private void quickSortSubIntArray(int[] unsortedInts, int lowIndex, int highIndex) {
         int middleIndex = lowIndex + (highIndex - lowIndex) / 2;
         int middleInt = unsortedInts[middleIndex];
         int leftSideIndex = lowIndex;
@@ -71,9 +73,9 @@ public class AlgorithmService {
             }
         }
         if (lowIndex < rightSideIndex)
-            quickSortSubArray(unsortedInts, lowIndex, rightSideIndex);
+            quickSortSubIntArray(unsortedInts, lowIndex, rightSideIndex);
         if (highIndex > leftSideIndex)
-            quickSortSubArray(unsortedInts, leftSideIndex, highIndex);
+            quickSortSubIntArray(unsortedInts, leftSideIndex, highIndex);
     }
 
     private void swapArrayElements(int[] array, int firstIndex, int secondIndex) {

@@ -1,5 +1,6 @@
 module com.jakubeeee.playground.msjava {
 
+    requires org.aspectj.weaver;
     requires spring.beans;
     requires spring.boot;
     requires spring.boot.autoconfigure;
