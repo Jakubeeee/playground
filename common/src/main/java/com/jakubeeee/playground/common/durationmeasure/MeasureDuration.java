@@ -1,4 +1,4 @@
-package com.jakubeeee.playground.msjava.durationmeasure;
+package com.jakubeeee.playground.common.durationmeasure;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

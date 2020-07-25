@@ -1,6 +1,6 @@
 package com.jakubeeee.playground.msjava.algorithm;
 
-import com.jakubeeee.playground.msjava.durationmeasure.MeasureDuration;
+import com.jakubeeee.playground.common.durationmeasure.MeasureDuration;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
