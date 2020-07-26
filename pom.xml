@@ -36,6 +36,8 @@
     </developers>
 
     <properties>
+        <project.version>1.0-SNAPSHOT</project.version>
+
         <java.version>14</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -48,6 +50,18 @@
         <!--suppress UnresolvedMavenProperty-->
         <project.root>${maven.multiModuleProjectDirectory}</project.root>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.jakubeeee.playground</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>

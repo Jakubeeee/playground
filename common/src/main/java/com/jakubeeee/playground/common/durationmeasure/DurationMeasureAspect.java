@@ -24,7 +24,7 @@ public class DurationMeasureAspect {
         Object returnValue = joinPoint.proceed();
         var endingInstant = Instant.now();
         var methodDuration = Duration.between(startingInstant, endingInstant);
-        LOGGER.info("\"{}\" method duration: \"{}\" millis", joinPoint.getSignature().getName(),
+        logger.info("\"{}\" method duration: \"{}\" millis", joinPoint.getSignature().getName(),
                 methodDuration.toMillis());
         return returnValue;
     }

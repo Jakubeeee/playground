@@ -26,6 +26,11 @@ open class AlgorithmService {
             logger.info { "Iteration number: $i" }
     }
 
+    /**
+     * Performs a quick sort of randomly generated int array.
+     *
+     * @param size the size of the int array to sort
+     */
     @MeasureDuration
     open fun quickSortRandomInts(size: Int) {
         require(size >= 2) { "Array size must be a at least 2" }

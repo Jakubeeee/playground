@@ -23,7 +23,7 @@ public class AlgorithmService {
     public void invokeLoop(int iterations) {
         if (iterations < 1) throw new IllegalArgumentException("Iteration amount must be a positive number");
         for (int i = 1; i <= iterations; i++)
-            LOGGER.info("Iteration number: {}", i);
+            logger.info("Iteration number: {}", i);
     }
 
     /**
@@ -53,12 +53,12 @@ public class AlgorithmService {
         int firstLowIndex = 0;
         int firstHighIndex = unsortedInts.length - 1;
         quickSortSubIntArray(unsortedInts, firstLowIndex, firstHighIndex);
-        LOGGER.info("Array after applying quick sort: {}", unsortedInts);
+        logger.info("Array after applying quick sort: {}", unsortedInts);
     }
 
     private void quickSortSubIntArray(int[] unsortedInts, int lowIndex, int highIndex) {
-        int middleIndex = lowIndex + (highIndex - lowIndex) / 2;
-        int middleInt = unsortedInts[middleIndex];
+        final int middleIndex = lowIndex + (highIndex - lowIndex) / 2;
+        final int middleInt = unsortedInts[middleIndex];
         int leftSideIndex = lowIndex;
         int rightSideIndex = highIndex;
         while (leftSideIndex <= rightSideIndex) {
