@@ -1,7 +1,7 @@
 module com.jakubeeee.playground.client {
 
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
+    requires java.net.http;
+    requires org.slf4j;
 
     requires static lombok;
 

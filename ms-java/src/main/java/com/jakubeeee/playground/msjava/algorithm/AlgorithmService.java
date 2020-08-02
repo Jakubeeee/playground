@@ -18,9 +18,10 @@ public class AlgorithmService {
      * @param iterations the amount of loop iterations to perform
      */
     @MeasureDuration
-    public void invokeLoop(int iterations) {
+    public int invokeLoop(int iterations) {
         int iterationsNumber = AlgorithmPerformer.getInstance().invokeLoop(iterations);
         logger.info("Loop iterations invoked: {}", iterationsNumber);
+        return iterationsNumber;
     }
 
     /**
@@ -29,9 +30,10 @@ public class AlgorithmService {
      * @param size the size of the int array to sort
      */
     @MeasureDuration
-    public void quickSortRandomInts(int size) {
+    public int[] quickSortRandomInts(int size) {
         int[] sortedInts = AlgorithmPerformer.getInstance().quickSortRandomInts(size);
         logger.info("Array after applying quick sort: {}", sortedInts);
+        return sortedInts;
     }
 
     /**
@@ -40,9 +42,10 @@ public class AlgorithmService {
      * @param unsortedInts the unsorted int array
      */
     @MeasureDuration
-    public void quickSortProvidedInts(@NonNull int[] unsortedInts) {
+    public int[] quickSortProvidedInts(@NonNull int[] unsortedInts) {
         int[] sortedInts = AlgorithmPerformer.getInstance().quickSortProvidedInts(unsortedInts);
         logger.info("Array after applying quick sort: {}", sortedInts);
+        return sortedInts;
     }
 
 }

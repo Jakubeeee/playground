@@ -1,15 +1,39 @@
 package com.jakubeeee.playground.client;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.extern.slf4j.Slf4j;
 
-import static com.jakubeeee.playground.client.ClientApplicationConstants.ROOT_PACKAGE;
+import java.util.Scanner;
 
-@SpringBootApplication(scanBasePackages = ROOT_PACKAGE)
+import static java.lang.System.in;
+import static java.lang.System.out;
+
+@Slf4j
 public class ClientApplicationEntryPoint {
 
+    private static final MSClient msJavaClient = new MSJavaClient();
+    private static final MSClient msKotlinClient = new MSKotlinClient();
+
     public static void main(String[] args) {
-        SpringApplication.run(ClientApplicationEntryPoint.class, args);
+        gatherInput();
+    }
+
+    static void gatherInput() {
+        try (var scanner = new Scanner(in)) {
+            out.println("Type \"RUN\" or \"EXIT\"");
+            var input = scanner.next();
+            if (input.equalsIgnoreCase("EXIT"))
+                Runtime.getRuntime().exit(0);
+            else if (input.equalsIgnoreCase("RUN")) {
+                runTest();
+                gatherInput();
+            } else
+                gatherInput();
+        }
+    }
+
+    static void runTest() {
+        msJavaClient.getAsync("algorithm/quicksortrandom?amount=100");
+        msKotlinClient.getAsync("algorithm/quicksortrandom?amount=100");
     }
 
 }

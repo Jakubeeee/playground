@@ -13,6 +13,7 @@
 
     <properties>
         <kotlin.jvm.target>13</kotlin.jvm.target>
+        <kotlin.logging.version>1.7.8</kotlin.logging.version>
     </properties>
 
     <dependencies>
@@ -41,9 +42,13 @@
             <artifactId>kotlin-stdlib</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.github.microutils</groupId>
             <artifactId>kotlin-logging</artifactId>
-            <version>1.7.8</version>
+            <version>${kotlin.logging.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
