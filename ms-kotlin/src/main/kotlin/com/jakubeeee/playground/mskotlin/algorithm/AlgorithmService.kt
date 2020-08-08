@@ -22,7 +22,7 @@ open class AlgorithmService {
     @MeasureDuration
     open fun invokeLoop(iterations: Int): Int {
         val iterationsNumber: Int = AlgorithmPerformer.invokeLoop(iterations)
-        logger.info("Loop iterations invoked: {}", iterationsNumber)
+        logger.info("Loop iterations invoked: $iterationsNumber")
         return iterationsNumber
     }
 
@@ -34,7 +34,7 @@ open class AlgorithmService {
     @MeasureDuration
     open fun quickSortRandomInts(size: Int): IntArray {
         val sortedInts: IntArray = AlgorithmPerformer.quickSortRandomInts(size)
-        logger.info("Array after applying quick sort: {}", sortedInts)
+        logger.info("Array after applying quick sort: $sortedInts")
         return sortedInts
     }
 
@@ -46,7 +46,7 @@ open class AlgorithmService {
     @MeasureDuration
     open fun quickSortProvidedInts(unsortedInts: IntArray): IntArray {
         val sortedInts: IntArray = AlgorithmPerformer.quickSortProvidedInts(unsortedInts)
-        logger.info("Array after applying quick sort: {}", sortedInts)
+        logger.info("Array after applying quick sort: $sortedInts")
         return sortedInts
     }
 

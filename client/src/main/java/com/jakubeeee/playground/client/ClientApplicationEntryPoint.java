@@ -32,8 +32,12 @@ public class ClientApplicationEntryPoint {
     }
 
     static void runTest() {
-        msJavaClient.getAsync("algorithm/quicksortrandom?amount=100");
-        msKotlinClient.getAsync("algorithm/quicksortrandom?amount=100");
+        msJavaClient.getAsync("algorithm/invokeloop?iterations=300");
+        msKotlinClient.getAsync("algorithm/invokeloop?iterations=300");
+        msJavaClient.getAsync("algorithm/quicksortrandom?amount=50");
+        msKotlinClient.getAsync("algorithm/quicksortrandom?amount=50");
+        msJavaClient.getAsync("algorithm/quicksort?ints=46,75,-23,64,77,32,12,-3,56,-43,1,64-73,-35,37,84,33,-45,-19,71,90,42");
+        msKotlinClient.getAsync("algorithm/quicksort?ints=46,75,-23,64,77,32,12,-3,56,-43,1,64-73,-35,37,84,33,-45,-19,71,90,42");
     }
 
 }

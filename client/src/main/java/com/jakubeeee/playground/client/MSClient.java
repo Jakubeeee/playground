@@ -27,6 +27,7 @@ abstract class MSClient {
                 .build();
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
+                .exceptionally(Throwable::getMessage)
                 .thenAccept(responseBody -> logger.info("The response body: {}", responseBody));
     }
 
