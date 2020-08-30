@@ -21,7 +21,7 @@ public class OrganizationController {
                                @RequestParam(value = "position", required = false) Position position,
                                @RequestParam(value = "departmentName", required = false) String departmentName,
                                @RequestParam(value = "managerName", required = false) String managerName) {
-        return service.countEmployees(type, position, departmentName, managerName);
+        return service.countEmployees(new EmployeeProjection(type, position, departmentName, managerName));
     }
 
     // curl http://localhost:8080/cost?type=WORKER&position=REGULAR&departmentName=Information_Technologies&managerName=ManagerIT
@@ -30,7 +30,7 @@ public class OrganizationController {
                                       @RequestParam(value = "position", required = false) Position position,
                                       @RequestParam(value = "departmentName", required = false) String departmentName,
                                       @RequestParam(value = "managerName", required = false) String managerName) {
-        return service.calculateEmployeeCost(type, position, departmentName, managerName);
+        return service.calculateEmployeeCost(new EmployeeProjection(type, position, departmentName, managerName));
     }
 
 }

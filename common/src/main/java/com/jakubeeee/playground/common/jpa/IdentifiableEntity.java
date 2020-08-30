@@ -4,6 +4,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * Template class for JPA entities that have unique {@link Long} identifier as a primary key.
+ */
 @MappedSuperclass
 public abstract class IdentifiableEntity implements JpaEntity {
 

@@ -1,7 +1,17 @@
 package com.jakubeeee.playground.msjava.organization;
 
+import org.jetbrains.annotations.NotNull;
+
+import static java.util.Objects.requireNonNull;
+
 public record BasicEmployeeInfo(
-        String lastName,
-        Position position,
+        @NotNull String lastName,
+        @NotNull Position position,
         long salary,
-        Department department) {}
+        @NotNull Department department) {
+    public BasicEmployeeInfo {
+        requireNonNull(lastName);
+        requireNonNull(position);
+        requireNonNull(department);
+    }
+}

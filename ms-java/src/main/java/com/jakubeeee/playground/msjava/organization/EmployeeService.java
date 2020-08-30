@@ -3,7 +3,6 @@ package com.jakubeeee.playground.msjava.organization;
 import com.jakubeeee.playground.msjava.organization.internal.EmployeeMapper;
 import com.jakubeeee.playground.msjava.organization.internal.EmployeeRepository;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +28,12 @@ public class EmployeeService {
         return employeeMapper.toDataContainer(employeeEntity);
     }
 
-    public Stream<Employee> getEmployees(@Nullable String type, @Nullable Position position, @Nullable String departmentName, @Nullable String managerName) {
+    public Stream<Employee> getEmployees(@NotNull EmployeeProjection projection) {
+        requireNonNull(projection);
+        var type = projection.type();
+        var position = projection.position();
+        var departmentName = projection.departmentName();
+        var managerName = projection.managerName();
         return repository.findAll(type, position, departmentName, managerName).stream()
                 .map(employeeMapper::toDataContainer);
     }
