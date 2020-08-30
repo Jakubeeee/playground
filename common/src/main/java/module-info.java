@@ -11,6 +11,4 @@ module com.jakubeeee.playground.common {
     requires spring.context;
     requires spring.data.jpa;
 
-    requires static lombok;
-
 }

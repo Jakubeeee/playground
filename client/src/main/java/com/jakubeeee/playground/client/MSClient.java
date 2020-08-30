@@ -1,14 +1,17 @@
 package com.jakubeeee.playground.client;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-@Slf4j
+import static org.slf4j.LoggerFactory.getLogger;
+
 abstract class MSClient {
+
+    private static final Logger logger = getLogger(MSClient.class);
 
     private static final String PROTOCOL = "http";
 

@@ -12,7 +12,6 @@ module com.jakubeeee.playground.msjava {
     requires spring.data.jpa;
     requires spring.web;
 
-    requires static annotations;
-    requires static lombok;
+    requires static org.jetbrains.annotations;
 
 }

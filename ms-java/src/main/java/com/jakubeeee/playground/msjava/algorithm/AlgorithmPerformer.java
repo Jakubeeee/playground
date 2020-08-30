@@ -1,11 +1,14 @@
 package com.jakubeeee.playground.msjava.algorithm;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-@Slf4j
+import static org.slf4j.LoggerFactory.getLogger;
+
 class AlgorithmPerformer {
+
+    private static final Logger logger = getLogger(AlgorithmPerformer.class);
 
     private static final AlgorithmPerformer INSTANCE = new AlgorithmPerformer();
 

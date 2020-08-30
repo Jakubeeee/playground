@@ -1,16 +1,19 @@
 package com.jakubeeee.playground.msjava.algorithm;
 
 import com.jakubeeee.playground.common.durationmeasure.MeasureDuration;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Contains implementations of various algorithms
  */
-@Slf4j
 @Service
 public class AlgorithmService {
+
+    private static final Logger logger = getLogger(AlgorithmService.class);
 
     /**
      * Invokes a simple for loop.
@@ -42,7 +45,7 @@ public class AlgorithmService {
      * @param unsortedInts the unsorted int array
      */
     @MeasureDuration
-    public int[] quickSortProvidedInts(@NonNull int[] unsortedInts) {
+    public int[] quickSortProvidedInts(@NotNull int[] unsortedInts) {
         int[] sortedInts = AlgorithmPerformer.getInstance().quickSortProvidedInts(unsortedInts);
         logger.info("Array after applying quick sort: {}", sortedInts);
         return sortedInts;
