@@ -1,5 +1,7 @@
 package com.jakubeeee.playground.msjava.organization;
 
-public interface Employee {
+import com.jakubeeee.playground.common.jpa.DataContainer;
+
+public interface Employee extends DataContainer {
     BasicEmployeeInfo basicEmployeeInfo();
 }

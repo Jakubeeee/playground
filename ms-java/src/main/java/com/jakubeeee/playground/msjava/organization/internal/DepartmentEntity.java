@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "DEPARTMENTS")
 public class DepartmentEntity extends IdentifiableEntity {
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     private String name;
 
     protected DepartmentEntity() {

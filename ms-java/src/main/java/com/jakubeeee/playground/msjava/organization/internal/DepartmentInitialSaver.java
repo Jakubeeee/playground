@@ -17,9 +17,9 @@ public class DepartmentInitialSaver extends InitialSaver<DepartmentEntity, Depar
     @Override
     protected Stream<DepartmentEntity> initialEntities() {
         return Stream.of(
-                new DepartmentEntity("Information technologies"),
+                new DepartmentEntity("Information_Technologies"),
                 new DepartmentEntity("Marketing"),
-                new DepartmentEntity("Human Resources")
+                new DepartmentEntity("Human_Resources")
         );
     }
 
