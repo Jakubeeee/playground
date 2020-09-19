@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk14
+FROM openjdk/15-jdk-oracle
 RUN mkdir /opt/artifact
 COPY target/ms-kotlin-1.0-SNAPSHOT.jar /opt/artifact/ms-kotlin.jar
 EXPOSE 8080 1044

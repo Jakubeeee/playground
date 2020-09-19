@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk14
+FROM openjdk/15-jdk-oracle
 RUN mkdir /opt/artifact
 COPY target/client-1.0-SNAPSHOT.jar /opt/artifact/client.jar
 EXPOSE 8080 1044
