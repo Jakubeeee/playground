@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-abstract class MSClient {
+abstract sealed class MSClient permits MSJavaClient, MSKotlinClient {
 
     private static final Logger logger = getLogger(MSClient.class);
 
