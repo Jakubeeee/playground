@@ -19,7 +19,9 @@ public class DepartmentInitialSaver extends InitialSaver<DepartmentEntity, Depar
         return Stream.of(
                 new DepartmentEntity("Information_Technologies"),
                 new DepartmentEntity("Marketing"),
-                new DepartmentEntity("Human_Resources")
+                new DepartmentEntity("Human_Resources"),
+                new DepartmentEntity("Research_And_Development"),
+                new DepartmentEntity("Accounting")
         );
     }
 
