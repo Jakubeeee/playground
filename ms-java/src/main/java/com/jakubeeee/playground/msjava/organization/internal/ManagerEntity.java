@@ -1,10 +1,13 @@
 package com.jakubeeee.playground.msjava.organization.internal;
 
 import com.jakubeeee.playground.msjava.organization.Position;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import static java.util.Objects.requireNonNull;
 
 @Entity
 @Table(name = "MANAGERS")
@@ -15,8 +18,8 @@ public class ManagerEntity extends EmployeeEntity {
         // no-arg constructor required by the JPA
     }
 
-    public ManagerEntity(String lastName, Position position, long salary, DepartmentEntity department) {
-        super(lastName, position, salary, department);
+    protected ManagerEntity(@NotNull String lastName, @NotNull Position position, long salary, @NotNull DepartmentEntity department) {
+        super(requireNonNull(lastName), requireNonNull(position), salary, requireNonNull(department));
     }
 
 }

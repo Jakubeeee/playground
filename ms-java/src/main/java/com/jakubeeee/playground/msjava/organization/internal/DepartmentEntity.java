@@ -1,10 +1,13 @@
 package com.jakubeeee.playground.msjava.organization.internal;
 
 import com.jakubeeee.playground.common.jpa.IdentifiableEntity;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import static java.util.Objects.requireNonNull;
 
 @Entity
 @Table(name = "DEPARTMENTS")
@@ -17,8 +20,8 @@ public class DepartmentEntity extends IdentifiableEntity {
         // no-arg constructor required by the JPA
     }
 
-    public DepartmentEntity(String name) {
-        this.name = name;
+    protected DepartmentEntity(@NotNull String name) {
+        this.name = requireNonNull(name);
     }
 
     public String name() {

@@ -7,7 +7,6 @@ import com.jakubeeee.playground.msjava.organization.Manager;
 import com.jakubeeee.playground.msjava.organization.Worker;
 import org.jetbrains.annotations.NotNull;
 
-import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
 public class EmployeeMapper implements EntityMapper<EmployeeEntity, Employee> {
@@ -31,19 +30,19 @@ public class EmployeeMapper implements EntityMapper<EmployeeEntity, Employee> {
         else if (employee instanceof Worker worker)
             return toEntity(worker);
         else
-            throw new IllegalStateException(format("Employee type \"%s\" is not supported", employee));
+            throw new IllegalStateException("Employee type \"%s\" is not supported".formatted(employee));
     }
 
     public ManagerEntity toEntity(@NotNull Manager manager) {
         requireNonNull(manager);
-        var basicEmployeeInfo = manager.basicEmployeeInfo();
-        return new ManagerEntity(basicEmployeeInfo.lastName(), basicEmployeeInfo.position(), basicEmployeeInfo.salary(), departmentMapper.toEntity(basicEmployeeInfo.department()));
+        var info = manager.basicEmployeeInfo();
+        return new ManagerEntity(info.lastName(), info.position(), info.salary(), departmentMapper.toEntity(info.department()));
     }
 
     public WorkerEntity toEntity(@NotNull Worker worker) {
         requireNonNull(worker);
-        var basicEmployeeInfo = worker.basicEmployeeInfo();
-        return new WorkerEntity(basicEmployeeInfo.lastName(), basicEmployeeInfo.position(), basicEmployeeInfo.salary(), departmentMapper.toEntity(basicEmployeeInfo.department()), toEntity(worker.manager()));
+        var info = worker.basicEmployeeInfo();
+        return new WorkerEntity(info.lastName(), info.position(), info.salary(), departmentMapper.toEntity(info.department()), toEntity(worker.manager()));
     }
 
     @Override
@@ -54,7 +53,7 @@ public class EmployeeMapper implements EntityMapper<EmployeeEntity, Employee> {
         else if (employeeEntity instanceof WorkerEntity workerEntity)
             return toDataContainer(workerEntity);
         else
-            throw new IllegalStateException(format("Employee type \"%s\" is not supported", employeeEntity));
+            throw new IllegalStateException("Employee type \"%s\" is not supported".formatted(employeeEntity));
     }
 
     public Manager toDataContainer(@NotNull ManagerEntity managerEntity) {

@@ -39,20 +39,16 @@ public class ClientApplicationEntryPoint {
         msKotlinClient.getAsync("algorithm/quicksort?ints=46,75,23,64,77,32,12,3,56,43,1,64,73,35,37,84,33,45,19,71,90,42");
 
         msJavaClient.getAsync("count?type=WORKER&position=SENIOR");
-        // TODO not implemented for kotlin yet
-//        msKotlinClient.getAsync("count?type=WORKER&position=SENIOR");
+        msKotlinClient.getAsync("count?type=WORKER&position=SENIOR");
 
         msJavaClient.getAsync("count?type=MANAGER&position=REGULAR&departmentName=Marketing");
-        // TODO not implemented for kotlin yet
-//        msKotlinClient.getAsync("count?type=MANAGER&position=REGULAR&departmentName=Marketing");
+        msKotlinClient.getAsync("count?type=MANAGER&position=REGULAR&departmentName=Marketing");
 
         msJavaClient.getAsync("cost?type=WORKER&position=REGULAR&managerName=ManagerIT");
-        // TODO not implemented for kotlin yet
-//        msKotlinClient.getAsync("cost?type=WORKER&position=REGULAR&managerName=ManagerIT");
+        msKotlinClient.getAsync("cost?type=WORKER&position=REGULAR&managerName=ManagerIT");
 
         msJavaClient.getAsync("cost?type=WORKER&position=REGULAR&departmentName=Information_Technologies&managerName=ManagerIT");
-        // TODO not implemented for kotlin yet
-//        msKotlinClient.getAsync("cost?type=WORKER&position=REGULAR&departmentName=Information_Technologies&managerName=ManagerIT");
+        msKotlinClient.getAsync("cost?type=WORKER&position=REGULAR&departmentName=Information_Technologies&managerName=ManagerIT");
     }
 
 }

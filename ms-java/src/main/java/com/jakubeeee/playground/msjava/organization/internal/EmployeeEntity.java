@@ -2,8 +2,11 @@ package com.jakubeeee.playground.msjava.organization.internal;
 
 import com.jakubeeee.playground.common.jpa.IdentifiableEntity;
 import com.jakubeeee.playground.msjava.organization.Position;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
+
+import static java.util.Objects.requireNonNull;
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -32,11 +35,11 @@ public abstract class EmployeeEntity extends IdentifiableEntity {
         // no-arg constructor required by the JPA
     }
 
-    protected EmployeeEntity(String lastName, Position position, long salary, DepartmentEntity department) {
-        this.lastName = lastName;
-        this.position = position;
+    protected EmployeeEntity(@NotNull String lastName, @NotNull Position position, long salary, @NotNull DepartmentEntity department) {
+        this.lastName = requireNonNull(lastName);
+        this.position = requireNonNull(position);
         this.salary = salary;
-        this.department = department;
+        this.department = requireNonNull(department);
     }
 
     public String lastName() {

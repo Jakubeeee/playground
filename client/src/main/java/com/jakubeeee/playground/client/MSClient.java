@@ -29,9 +29,11 @@ abstract sealed class MSClient permits MSJavaClient, MSKotlinClient {
         var request = HttpRequest.newBuilder(URI.create(urlPrefix() + endpointUrl))
                 .build();
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)
-                .exceptionally(Throwable::getMessage)
-                .thenAccept(responseBody -> logger.info("The response body: {}", responseBody));
+                .thenAccept(this::onResponse);
+    }
+
+    void onResponse(HttpResponse<?> response) {
+        logger.info("The response body: {} for uri: {}", response.body(), response.uri());
     }
 
 }

@@ -21,6 +21,10 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> 
                  AND (:departmentName IS NULL OR e.department.name = :departmentName)
             """
     )
-    Set<EmployeeEntity> findAll(@Param("type") String type, @Param("position") Position position, @Param("departmentName") String departmentName, @Param("managerName") String managerName);
+    Set<EmployeeEntity> findAll(
+            @Param("type") String type,
+            @Param("position") Position position,
+            @Param("departmentName") String departmentName,
+            @Param("managerName") String managerName);
 
 }

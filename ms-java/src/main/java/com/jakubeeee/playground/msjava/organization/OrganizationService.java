@@ -48,7 +48,7 @@ public class OrganizationService {
         return employees
                 .map(Employee::basicEmployeeInfo)
                 .mapToLong(BasicEmployeeInfo::salary)
-                .reduce(0L, Long::sum);
+                .sum();
     }
 
 }
