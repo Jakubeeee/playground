@@ -13,10 +13,7 @@ open class EmployeeService(private val repository: EmployeeRepository) {
     }
 
     fun getEmployees(projection: EmployeeProjection): List<Employee> {
-        val type = projection.type
-        val position = projection.position
-        val departmentName = projection.departmentName
-        val managerName = projection.managerName
+        val (type, position, departmentName, managerName) = projection;
         return repository.findAll(type, position, departmentName, managerName)
                 .map(EmployeeMapper::toDataContainer)
     }
