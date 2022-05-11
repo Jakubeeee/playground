@@ -1,5 +1,7 @@
 module com.jakubeeee.playground.mskotlin {
 
+    exports com.jakubeeee.playground.mskotlin;
+
     requires com.jakubeeee.playground.common;
 
     requires java.persistence;

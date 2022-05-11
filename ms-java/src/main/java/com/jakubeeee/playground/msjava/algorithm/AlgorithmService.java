@@ -45,7 +45,7 @@ public class AlgorithmService {
      * @param unsortedInts the unsorted int array
      */
     @MeasureDuration
-    public int[] quickSortProvidedInts(@NotNull int[] unsortedInts) {
+    public int[] quickSortProvidedInts(int @NotNull [] unsortedInts) {
         int[] sortedInts = AlgorithmPerformer.getInstance().quickSortProvidedInts(unsortedInts);
         logger.info("Array after applying quick sort: {}", sortedInts);
         return sortedInts;
